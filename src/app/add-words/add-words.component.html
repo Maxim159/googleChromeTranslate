@@ -1,0 +1,27 @@
+<div style="width:100%">
+    <form (ngSubmit)="addWord(nameWord,translationWord.value,this.paramUrl)" #heroForm="ngForm">
+      <md-input-container class="example-full-width">
+          <input mdInput [(ngModel)]="nameWord"  placeholder="Введите новое слово" name="efew">
+      </md-input-container>
+      <md-input-container class="example-full-width">
+          <input mdInput #translationWord placeholder="Введите перевод слова" name="dsfs">
+      </md-input-container>
+      <button md-raised-button color="primary" type="submit">Добавить</button>
+    </form>
+
+    {{ (this.AuthService.user | async)?.uid }}
+
+    <form #myForm="ngForm" (ngSubmit)="clacl(myForm)">
+        <input type="email" placeholder="Your email">
+        <input type="password" placeholder="Your password">
+      <input type="submit" value="Клик">
+    </form>
+
+    <md-grid-list cols="2" rowHeight="2:1">
+        <md-grid-tile *ngFor="let word of this.BdReadAndWriteService.words | async">
+             {{ word | json }} 
+           
+        </md-grid-tile>
+    </md-grid-list>
+
+  </div>
